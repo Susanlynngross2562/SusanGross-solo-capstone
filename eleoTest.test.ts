@@ -1,4 +1,5 @@
 import {Driver} from "selenium-webdriver/chrome";
+import { elementLocated } from "selenium-webdriver/lib/until";
 import {pageObjects} from "./eleoPageObjects";
 
 const eleo = new pageObjects()
@@ -104,3 +105,25 @@ describe("Test Case 7", () => {
         await eleo.driver.quit()
     })
 })
+/*
+describe("Test Case 8", () => {
+    test("Add a Gift from within a Contact Record", async () => {
+        await eleo.loginDatabase()
+        await eleo.click(eleo.mainContactTab)
+        await eleo.setInput(eleo.contactInputFilter, "Bell")
+        await eleo.click(eleo.searchBtn)
+        await eleo.driver.sleep(1000)
+        await eleo.click(eleo.tinkerBellContact)
+        await eleo.click(eleo.contactGiftTab)
+        await eleo.click(eleo.addGiftBtn)
+        await eleo.click(eleo.paymentType)
+        await eleo.click(eleo.cashPayment)
+        await eleo.setInput(eleo.amountInput, "333")
+        await eleo.click(eleo.fundField)
+        await eleo.click(eleo.generalFund)
+        await eleo.click(eleo.giftSaveBtn)
+        await eleo.driver.sleep(2000)
+        await eleo.driver.quit()
+    })
+})
+*/
