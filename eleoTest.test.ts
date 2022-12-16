@@ -2,8 +2,9 @@ import {Driver} from "selenium-webdriver/chrome";
 import { elementLocated } from "selenium-webdriver/lib/until";
 import {pageObjects} from "./eleoPageObjects";
 
-const eleo = new pageObjects()
-/*
+const eleo = new pageObjects();
+const fs = require("fs");
+
 describe("Test Case 1", () => {
     test("Add a contact with Save", async () => {
         await eleo.loginDatabase()
@@ -19,13 +20,18 @@ describe("Test Case 1", () => {
         await eleo.setInput(eleo.emailInput, "harrypotter987123@woohoo.com")
         await eleo.click(eleo.saveBtn)
         await eleo.driver.sleep(3000)
-        await eleo.driver.quit()
+        
+        await fs.writeFile(`${__dirname}/1saveBtnScreenshot.png`,
+        await eleo.driver.takeScreenshot(), "base64",
+        (e) => {
+            if (e) console.error(e)
+            else console.log('SaveSuccessful')
+        })
     })
 })
 
 describe("Test Case 2", () => {
     test("Add a contact with Save and Contintue", async () => {
-        await eleo.loginDatabase()
         await eleo.click(eleo.mainContactTab)
         await eleo.click(eleo.addContact)
         await eleo.setInput(eleo.firstNameInput, "George")
@@ -38,13 +44,18 @@ describe("Test Case 2", () => {
         await eleo.setInput(eleo.emailInput, "georgejetson987123@woohoo.com")
         await eleo.click(eleo.saveContinueBtn)
         await eleo.driver.sleep(3000)
-        await eleo.driver.quit()
+
+        await fs.writeFile(`${__dirname}/2saveContinueScreenshot.png`,
+        await eleo.driver.takeScreenshot(), "base64",
+        (e) => {
+            if (e) console.error(e)
+            else console.log('SaveSuccessful')
+        })
     })
 })
 
 describe("Test Case 3", () => {
     test("Add a contact with Save and Add a Gift", async () => {
-        await eleo.loginDatabase()
         await eleo.click(eleo.mainContactTab)
         await eleo.click(eleo.addContact)
         await eleo.setInput(eleo.firstNameInput, "Mary")
@@ -57,58 +68,85 @@ describe("Test Case 3", () => {
         await eleo.setInput(eleo.emailInput, "marypoppins987123@woohoo.com")
         await eleo.click(eleo.saveWithGiftBtn)
         await eleo.driver.sleep(3000)
-        await eleo.driver.quit()
+
+        await fs.writeFile(`${__dirname}/3saveWithGiftScreenshot.png`,
+        await eleo.driver.takeScreenshot(), "base64",
+        (e) => {
+            if (e) console.error(e)
+            else console.log('SaveSuccessful')
+        })
     })
 })
-*/
+
 describe("Test Case 4", () => {
     test("Search for a Contact with a Full Name", async () => {
-        await eleo.loginDatabase()
         await eleo.click(eleo.mainContactTab)
         await eleo.setInput(eleo.contactInputFilter, "Tinker Bell")
         await eleo.click(eleo.searchBtn)
         await eleo.driver.sleep(2000)
-        //expect??
-        await eleo.driver.quit()
+        
+        await fs.writeFile(`${__dirname}/4fullNameScreenshot.png`,
+        await eleo.driver.takeScreenshot(), "base64",
+        (e) => {
+            if (e) console.error(e)
+            else console.log('SaveSuccessful')
+        })
     })
 })
 
+
 describe("Test Case 5", () => {
     test("Search for a Contact with a First Name", async () => {
-        await eleo.loginDatabase()
         await eleo.click(eleo.mainContactTab)
         await eleo.setInput(eleo.contactInputFilter, "Tinker")
         await eleo.click(eleo.searchBtn)
         await eleo.driver.sleep(2000)
-        await eleo.driver.quit()
+
+        await fs.writeFile(`${__dirname}/5firstNameScreenshot.png`,
+        await eleo.driver.takeScreenshot(), "base64",
+        (e) => {
+            if (e) console.error(e)
+            else console.log('SaveSuccessful')
+        })
     })
 })
-
 describe("Test Case 6", () => {
     test("Search for a Contact with a Last Name", async () => {
-        await eleo.loginDatabase()
         await eleo.click(eleo.mainContactTab)
         await eleo.setInput(eleo.contactInputFilter, "Bell")
         await eleo.click(eleo.searchBtn)
         await eleo.driver.sleep(2000)
-        await eleo.driver.quit()
+
+        await fs.writeFile(`${__dirname}/6lastNameScreenshot.png`,
+        await eleo.driver.takeScreenshot(), "base64",
+        (e) => {
+            if (e) console.error(e)
+            else console.log('SaveSuccessful')
+        })
     })
 })
 
 describe("Test Case 7", () => {
     test("Search for a Contact with only Special Characters", async () => {
-        await eleo.loginDatabase()
         await eleo.click(eleo.mainContactTab)
         await eleo.setInput(eleo.contactInputFilter, '?>":%#$%<!')
         await eleo.click(eleo.searchBtn)
+
+        await eleo.switchTo().alert().accept()
+
         await eleo.driver.sleep(2000)
-        await eleo.driver.quit()
+
+        await fs.writeFile(`${__dirname}/7specialCharactersScreenshot.png`,
+        await eleo.driver.takeScreenshot(), "base64",
+        (e) => {
+            if (e) console.error(e)
+            else console.log('SaveSuccessful')
+        })
     })
 })
-/*
+
 describe("Test Case 8", () => {
     test("Add a Gift from within a Contact Record", async () => {
-        await eleo.loginDatabase()
         await eleo.click(eleo.mainContactTab)
         await eleo.setInput(eleo.contactInputFilter, "Bell")
         await eleo.click(eleo.searchBtn)
@@ -123,7 +161,15 @@ describe("Test Case 8", () => {
         await eleo.click(eleo.generalFund)
         await eleo.click(eleo.giftSaveBtn)
         await eleo.driver.sleep(2000)
+        
+        await fs.writeFile(`${__dirname}/8addGiftScreenshot.png`,
+        await eleo.driver.takeScreenshot(), "base64",
+        (e) => {
+            if (e) console.error(e)
+            else console.log('SaveSuccessful')
+        })
+
         await eleo.driver.quit()
+
     })
 })
-*/

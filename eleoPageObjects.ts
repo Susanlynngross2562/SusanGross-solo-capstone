@@ -17,7 +17,7 @@ export class pageObjects extends BasePage {
     emailInput: By = By.xpath('//input[@name="txtEmail2"]')
     saveBtn: By = By.css('#ctl00_MainContent_btnSave_link1')
     saveContinueBtn: By = By.css('#ctl00_MainContent_btnSaveAndEdit_link1')
-    saveWithGiftBtn: By = By.css('ctl00_MainContent_btnSaveAndGift_link1')
+    saveWithGiftBtn: By = By.css('#ctl00_MainContent_btnSaveAndGift_link1')
     contactInputFilter: By = By.xpath('//input[@name="ctl00$MainContent$ContactSearchControl1$txtSearchName"]')
     searchBtn: By = By.css('#ctl00_MainContent_btnSearch_link1')
     tinkerBellContact: By = By.xpath('//tr[@id="ctl00_MainContent_CSSGrid1_grid_DXDataRow0"]')
@@ -33,6 +33,7 @@ export class pageObjects extends BasePage {
     constructor() {
         super({url: "https://eleoonline.net/Pages/SystemAccess/Login.aspx"})
     }
+    
     async loginDatabase () {
         await this.navigate(this.url)
         await this.setInput(this.userName, "suegross")
@@ -40,4 +41,19 @@ export class pageObjects extends BasePage {
         await this.click(this.logIn)
         await this.driver.sleep(2000)
     }
+/*
+    async addNewContact () {
+        await this.click(this.mainContactTab)
+        await this.click(this.addContact)
+        await eleo.setInput(eleo.firstNameInput, "Harry")
+        await eleo.setInput(eleo.lastNameInput, "Potter")
+        await eleo.setInput(eleo.address1Input, "55 Hogwarts Blvd")
+        await eleo.setInput(eleo.cityInput, "London")
+        await eleo.setInput(eleo.stateInput, "NJ")
+        await eleo.setInput(eleo.zipInput, "55555")
+        await eleo.setInput(eleo.phoneInput, "555-555-1000")
+        await eleo.setInput(eleo.emailInput, "harrypotter987123@woohoo.com")
+    }
+*/
+
 }
